@@ -15,7 +15,7 @@ export const createNewComment = async ({
     };
 
     const { data } = await axios.post(
-      "http://localhost:5000/api/comments",
+      "https://blog-backend-five-beige.vercel.app/api/comments",
       {
         desc,
         slug,
@@ -41,7 +41,7 @@ export const updateComment = async ({ token, desc, check, commentId }) => {
     };
 
     const { data } = await axios.put(
-      `http://localhost:5000/api/comments/${commentId}`,
+      `https://blog-backend-five-beige.vercel.app/api/comments/${commentId}`,
       {
         desc,
         check,
@@ -64,7 +64,7 @@ export const deleteComment = async ({ token, commentId }) => {
       },
     };
 
-    const { data } = await axios.delete(`http://localhost:5000/api/comments/${commentId}`, config);
+    const { data } = await axios.delete(`https://blog-backend-five-beige.vercel.app/api/comments/${commentId}`, config);
     return data;
   } catch (error) {
     if (error.response && error.response.data.message)
@@ -87,7 +87,7 @@ export const getAllComments = async (
     };
 
     const { data, headers } = await axios.get(
-      `http://localhost:5000/api/comments?searchKeyword=${searchKeyword}&page=${page}&limit=${limit}`,
+      `https://blog-backend-five-beige.vercel.app/api/comments?searchKeyword=${searchKeyword}&page=${page}&limit=${limit}`,
       config
     );
     return { data, headers };
